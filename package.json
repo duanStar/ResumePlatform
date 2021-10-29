@@ -1,0 +1,102 @@
+{
+  "name": "visResumeMook",
+  "version": "1.0.0",
+  "main": "./dist/electron.js",
+  "author": "段宏斐",
+  "dependencies": {
+    "@babel/polyfill": "^7.12.1",
+    "@types/react": "^17.0.33",
+    "@types/react-css-modules": "^4.6.4",
+    "@types/react-dom": "^17.0.10",
+    "@types/react-redux": "^7.1.20",
+    "@types/react-router-dom": "^5.3.2",
+    "@typescript-eslint/eslint-plugin": "4.24.0",
+    "@typescript-eslint/parser": "4.24.0",
+    "autoprefixer": "9.0.0",
+    "babel-plugin-react-css-modules": "^5.2.6",
+    "css-loader": "3.0.0",
+    "eslint": "7.26.0",
+    "eslint-config-alloy": "4.1.0",
+    "eslint-config-prettier": "8.3.0",
+    "eslint-plugin-prettier": "3.4.0",
+    "eslint-plugin-react": "7.23.2",
+    "eslint-plugin-react-hooks": "4.2.0",
+    "file-loader": "^6.2.0",
+    "less": "3.12.2",
+    "less-loader": "6.2.0",
+    "postcss-less": "3.1.4",
+    "postcss-loader": "3.0.0",
+    "prettier": "2.3.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-router": "^5.2.1",
+    "react-router-dom": "^5.3.0",
+    "style-loader": "2.0.0",
+    "typescript": "^4.4.4"
+  },
+  "scripts": {
+    "start:main": "webpack --config ./webpack/webpack.main.dev.js && electron ./dist/electron.js",
+    "start:render": "webpack-dev-server --config ./webpack/webpack.render.dev.js",
+    "install:electron": "ELECTRON_MIRROR=https://cdn.npm.taobao.org/dist/electron/ npm install electron",
+    "build:main": "webpack --config ./webpack/webpack.main.prod.js",
+    "build:render": "webpack --config ./webpack/webpack.render.prod.js",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@babel/cli": "^7.15.7",
+    "@babel/core": "^7.15.8",
+    "@babel/plugin-transform-modules-commonjs": "^7.15.4",
+    "@babel/plugin-transform-runtime": "^7.15.8",
+    "@babel/preset-env": "^7.15.8",
+    "@babel/preset-react": "^7.14.5",
+    "@babel/preset-typescript": "^7.15.0",
+    "babel-loader": "^8.2.3",
+    "clean-webpack-plugin": "^4.0.0",
+    "electron": "11.1.1",
+    "html-webpack-plugin": "^4.3.0",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.2",
+    "webpack-merge": "^5.8.0"
+  },
+  "build": {
+    "appId": "visResumeMook.ElectronReact",
+    "productName": "VisResumeMook",
+    "copyright": "Copyright © 2021 ${author}",
+    "files": ["dist/**/*", "package.json", "node_modules/"],
+    "directories": {
+      "buildResources": "assets",
+      "output": "distAssets"
+    },
+    "mac": {
+      "target": [
+        "dmg",
+        "zip"
+      ]
+    },
+    "dmg": {
+      "contents": [
+        {
+          "x": 130,
+          "y": 220
+        },
+        {
+          "x": 410,
+          "y": 220,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    },
+    "win": {
+      "target": [
+        "nsis",
+        "msi"
+      ]
+    }
+  }
+}
