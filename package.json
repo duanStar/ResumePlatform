@@ -29,8 +29,10 @@
     "prettier": "2.3.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-redux": "^7.2.6",
     "react-router": "^5.2.1",
     "react-router-dom": "^5.3.0",
+    "redux": "^4.1.2",
     "style-loader": "2.0.0",
     "typescript": "^4.4.4"
   },
@@ -54,10 +56,13 @@
     "@babel/preset-env": "^7.15.8",
     "@babel/preset-react": "^7.14.5",
     "@babel/preset-typescript": "^7.15.0",
+    "@types/redux-logger": "^3.0.9",
     "babel-loader": "^8.2.3",
     "clean-webpack-plugin": "^4.0.0",
     "electron": "11.1.1",
     "html-webpack-plugin": "^4.3.0",
+    "rc-redux-model": "^1.1.10",
+    "redux-logger": "^3.0.6",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.2",
@@ -67,7 +72,11 @@
     "appId": "visResumeMook.ElectronReact",
     "productName": "VisResumeMook",
     "copyright": "Copyright © 2021 ${author}",
-    "files": ["dist/**/*", "package.json", "node_modules/"],
+    "files": [
+      "dist/**/*",
+      "package.json",
+      "node_modules/"
+    ],
     "directories": {
       "buildResources": "assets",
       "output": "distAssets"

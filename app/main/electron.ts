@@ -3,11 +3,12 @@
  */
 
 import path from 'path';
-import { app, BrowserWindow } from 'electron';
+import { app, BrowserWindow, ipcMain } from 'electron';
 
 function isDev() {
   return process.env.NODE_ENV === 'development';
 }
+const ROOT_PATH = path.join(app.getAppPath(), '../');
 
 function createWindow() {
   const mainWindow = new BrowserWindow({
@@ -29,4 +30,8 @@ app.whenReady().then(() => {
   app.on('activate', function () {
     if (BrowserWindow.getAllWindows().length === 0) createWindow();
   });
+});
+
+ipcMain.on('get-root-path', (event, arg) => {
+  event.reply('reply-root-path', ROOT_PATH);
 });
