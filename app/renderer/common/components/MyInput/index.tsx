@@ -72,7 +72,7 @@ export interface InputProps extends Omit<React.InputHTMLAttributes<HTMLInputElem
    */
   bgTransparent?: boolean;
   /**
-   * @description 毁掉函数
+   * @description 回调函数
    */
   onChange?: (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
 }
