@@ -3,7 +3,7 @@ const resumeModel: TSRcReduxModel.Props<TSResume.IntactResume> = {
   openSeamlessImmutable: true,
   state: {
     base: {
-      avatar: '',
+      avatar: '@assets/avatar.jpg',
       username: 'xxx',
       area: '海南·海口',
       school: '湖南瞎说大学',

@@ -11,6 +11,10 @@ import Certificate from './UseForm/Certificate';
 import Contact from './UseForm/Contact';
 import Education from './UseForm/Education';
 import Work from './UseForm/Work';
+import Evaluation from './UseForm/Evaluation';
+import WorkExperience from './UseForm/WorkExperience';
+import ProjectExperience from './UseForm/ProjectExperience';
+import SchoolExperience from './UseForm/SchoolExperience';
 
 function ResumeContent() {
   const HEADER_ACTION_HEIGHT = 92;
@@ -47,6 +51,10 @@ function ResumeContent() {
           {formName === RESUME_TOOLBAR_MAPS.certificate && <Certificate onClose={onClose} />}
           {formName === RESUME_TOOLBAR_MAPS.contact && <Contact onClose={onClose} />}
           {formName === RESUME_TOOLBAR_MAPS.education && <Education onClose={onClose} />}
+          {formName === RESUME_TOOLBAR_MAPS.evaluation && <Evaluation onClose={onClose} />}
+          {formName === RESUME_TOOLBAR_MAPS.workExperience && <WorkExperience onClose={onClose} />}
+          {formName === RESUME_TOOLBAR_MAPS.projectExperience && <ProjectExperience onClose={onClose} />}
+          {formName === RESUME_TOOLBAR_MAPS.schoolExperience && <SchoolExperience onClose={onClose} />}
           {formName === RESUME_TOOLBAR_MAPS.workPrefer && <Work onClose={onClose} />}
         </div>
       )}
