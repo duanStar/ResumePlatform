@@ -6,6 +6,11 @@ import MyScrollBox from '@common/components/MyScrollBox';
 import Messager, { MESSAGE_EVENT_NAME_MAPS } from '@common/messager';
 import Personal from './UseForm/Personal';
 import { RESUME_TOOLBAR_MAPS } from '@src/common/constants/resume';
+import Skill from './UseForm/Skill';
+import Certificate from './UseForm/Certificate';
+import Contact from './UseForm/Contact';
+import Education from './UseForm/Education';
+import Work from './UseForm/Work';
 
 function ResumeContent() {
   const HEADER_ACTION_HEIGHT = 92;
@@ -27,20 +32,22 @@ function ResumeContent() {
       setFormName(data?.form_name);
     });
   };
+  const onClose = () => {
+    setShowFormModal(false);
+    setFormName('');
+  };
 
   return (
     <MyScrollBox maxHeight={height - HEADER_ACTION_HEIGHT}>
       <UseTemplateList.TemplateOne />
       {showFormModal && (
         <div>
-          {formName === RESUME_TOOLBAR_MAPS.personal && (
-            <Personal
-              onClose={() => {
-                setShowFormModal(false);
-                setFormName('');
-              }}
-            />
-          )}
+          {formName === RESUME_TOOLBAR_MAPS.personal && <Personal onClose={onClose} />}
+          {formName === RESUME_TOOLBAR_MAPS.skill && <Skill onClose={onClose} />}
+          {formName === RESUME_TOOLBAR_MAPS.certificate && <Certificate onClose={onClose} />}
+          {formName === RESUME_TOOLBAR_MAPS.contact && <Contact onClose={onClose} />}
+          {formName === RESUME_TOOLBAR_MAPS.education && <Education onClose={onClose} />}
+          {formName === RESUME_TOOLBAR_MAPS.workPrefer && <Work onClose={onClose} />}
         </div>
       )}
     </MyScrollBox>
