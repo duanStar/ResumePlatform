@@ -24,6 +24,7 @@ function createWindow() {
   } else {
     mainWindow.loadURL(`file://${path.join(__dirname, '../dist/index.html')}`);
   }
+  mainWindow.webContents.openDevTools();
 }
 app.whenReady().then(() => {
   createWindow();
