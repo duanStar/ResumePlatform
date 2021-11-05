@@ -956,7 +956,7 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
-"@babel/runtime@^7.15.4":
+"@babel/runtime@^7.12.5", "@babel/runtime@^7.14.0", "@babel/runtime@^7.15.4":
   version "7.16.0"
   resolved "https://registry.npmmirror.com/@babel/runtime/download/@babel/runtime-7.16.0.tgz?cache=0&sync_timestamp=1635555303127&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2F%40babel%2Fruntime%2Fdownload%2F%40babel%2Fruntime-7.16.0.tgz#e27b977f2e2088ba24748bf99b5e1dece64e4f0b"
   integrity sha1-4nuXfy4giLokdIv5m14d7OZOTws=
@@ -1109,6 +1109,11 @@
   version "15.7.4"
   resolved "https://registry.nlark.com/@types/prop-types/download/@types/prop-types-15.7.4.tgz?cache=0&sync_timestamp=1629708737049&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40types%2Fprop-types%2Fdownload%2F%40types%2Fprop-types-15.7.4.tgz#fcf7205c25dff795ee79af1e30da2c9790808f11"
   integrity sha1-/PcgXCXf95Xuea8eMNosl5CAjxE=
+
+"@types/raf@^3.4.0":
+  version "3.4.0"
+  resolved "https://registry.nlark.com/@types/raf/download/@types/raf-3.4.0.tgz#2b72cbd55405e071f1c4d29992638e022b20acc2"
+  integrity sha1-K3LL1VQF4HHxxNKZkmOOAisgrMI=
 
 "@types/react-css-modules@^4.6.4":
   version "4.6.4"
@@ -1756,6 +1761,16 @@ balanced-match@^1.0.0:
   resolved "https://registry.npm.taobao.org/balanced-match/download/balanced-match-1.0.2.tgz?cache=0&sync_timestamp=1617714233441&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fbalanced-match%2Fdownload%2Fbalanced-match-1.0.2.tgz"
   integrity sha1-6D46fj8wCzTLnYf2FfoMvzV2kO4=
 
+base64-arraybuffer@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.nlark.com/base64-arraybuffer/download/base64-arraybuffer-0.2.0.tgz#4b944fac0191aa5907afe2d8c999ccc57ce80f45"
+  integrity sha1-S5RPrAGRqlkHr+LYyZnMxXzoD0U=
+
+base64-arraybuffer@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.nlark.com/base64-arraybuffer/download/base64-arraybuffer-1.0.1.tgz#87bd13525626db4a9838e00a508c2b73efcf348c"
+  integrity sha1-h70TUlYm20qYOOAKUIwrc+/PNIw=
+
 base64-js@^1.0.2:
   version "1.5.1"
   resolved "https://registry.npm.taobao.org/base64-js/download/base64-js-1.5.1.tgz"
@@ -1962,6 +1977,11 @@ browserslist@^4.0.1, browserslist@^4.16.6, browserslist@^4.17.5:
     node-releases "^2.0.1"
     picocolors "^1.0.0"
 
+btoa@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.nlark.com/btoa/download/btoa-1.2.1.tgz#01a9909f8b2c93f6bf680ba26131eb30f7fa3d73"
+  integrity sha1-AamQn4ssk/a/aAuiYTHrMPf6PXM=
+
 buffer-crc32@~0.2.3:
   version "0.2.13"
   resolved "https://registry.npm.taobao.org/buffer-crc32/download/buffer-crc32-0.2.13.tgz"
@@ -2104,6 +2124,20 @@ caniuse-lite@^1.0.30000865, caniuse-lite@^1.0.30001271:
   version "1.0.30001272"
   resolved "https://registry.npmmirror.com/caniuse-lite/download/caniuse-lite-1.0.30001272.tgz?cache=0&sync_timestamp=1635416271707&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fcaniuse-lite%2Fdownload%2Fcaniuse-lite-1.0.30001272.tgz"
   integrity sha1-jpeQ/5lenrbh9MRc0H3aqHzduxQ=
+
+canvg@^3.0.6:
+  version "3.0.9"
+  resolved "https://registry.npmmirror.com/canvg/download/canvg-3.0.9.tgz#9ba095f158b94b97ca2c9c1c40785b11dc08df6d"
+  integrity sha1-m6CV8Vi5S5fKLJwcQHhbEdwI320=
+  dependencies:
+    "@babel/runtime" "^7.12.5"
+    "@types/raf" "^3.4.0"
+    core-js "^3.8.3"
+    raf "^3.4.1"
+    regenerator-runtime "^0.13.7"
+    rgbcolor "^1.0.1"
+    stackblur-canvas "^2.0.0"
+    svg-pathdata "^6.0.3"
 
 chalk@^1.1.3:
   version "1.1.3"
@@ -2420,6 +2454,11 @@ core-js@2, core-js@^2.6.5:
   resolved "https://registry.npmmirror.com/core-js/download/core-js-2.6.12.tgz?cache=0&sync_timestamp=1635142905717&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fcore-js%2Fdownload%2Fcore-js-2.6.12.tgz"
   integrity sha1-2TM9+nsGXjR8xWgiGdb2kIWcwuw=
 
+core-js@^3.6.0, core-js@^3.8.3:
+  version "3.19.1"
+  resolved "https://registry.npmmirror.com/core-js/download/core-js-3.19.1.tgz#f6f173cae23e73a7d88fa23b6e9da329276c6641"
+  integrity sha1-9vFzyuI+c6fYj6I7bp2jKSdsZkE=
+
 core-js@^3.6.5:
   version "3.19.0"
   resolved "https://registry.npmmirror.com/core-js/download/core-js-3.19.0.tgz?cache=0&sync_timestamp=1635142905717&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fcore-js%2Fdownload%2Fcore-js-3.19.0.tgz"
@@ -2507,6 +2546,13 @@ crypto-browserify@^3.11.0:
     public-encrypt "^4.0.0"
     randombytes "^2.0.0"
     randomfill "^1.0.3"
+
+css-line-break@2.0.1:
+  version "2.0.1"
+  resolved "https://registry.nlark.com/css-line-break/download/css-line-break-2.0.1.tgz?cache=0&sync_timestamp=1628084316300&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fcss-line-break%2Fdownload%2Fcss-line-break-2.0.1.tgz#3dc74c2ed5eb64211480281932475790243e7338"
+  integrity sha1-PcdMLtXrZCEUgCgZMkdXkCQ+czg=
+  dependencies:
+    base64-arraybuffer "^0.2.0"
 
 css-loader@3.0.0:
   version "3.0.0"
@@ -2802,6 +2848,11 @@ domhandler@^4.0.0, domhandler@^4.2.0:
   integrity sha1-6CXXIdGahrjCAaNSZOImxnjudV8=
   dependencies:
     domelementtype "^2.2.0"
+
+dompurify@^2.2.0:
+  version "2.3.3"
+  resolved "https://registry.nlark.com/dompurify/download/dompurify-2.3.3.tgz#c1af3eb88be47324432964d8abc75cf4b98d634c"
+  integrity sha1-wa8+uIvkcyRDKWTYq8dc9LmNY0w=
 
 domutils@^2.5.2, domutils@^2.6.0:
   version "2.8.0"
@@ -3347,6 +3398,11 @@ fd-slicer@~1.1.0:
   integrity sha1-JcfInLH5B3+IkbvmHY85Dq4lbx4=
   dependencies:
     pend "~1.2.0"
+
+fflate@^0.4.8:
+  version "0.4.8"
+  resolved "https://registry.nlark.com/fflate/download/fflate-0.4.8.tgz#f90b82aefbd8ac174213abb338bd7ef848f0f5ae"
+  integrity sha1-+QuCrvvYrBdCE6uzOL1++Ejw9a4=
 
 figgy-pudding@^3.5.1:
   version "3.5.2"
@@ -3938,6 +3994,14 @@ html-webpack-plugin@^4.3.0:
     pretty-error "^2.1.1"
     tapable "^1.1.3"
     util.promisify "1.0.0"
+
+html2canvas@^1.0.0-rc.5, html2canvas@^1.3.2:
+  version "1.3.2"
+  resolved "https://registry.nlark.com/html2canvas/download/html2canvas-1.3.2.tgz#951cc8388a3ce939fdac02131007ee28124afc27"
+  integrity sha1-lRzIOIo86Tn9rAITEAfuKBJK/Cc=
+  dependencies:
+    css-line-break "2.0.1"
+    text-segmentation "^1.0.2"
 
 htmlparser2@^6.1.0:
   version "6.1.0"
@@ -4550,6 +4614,21 @@ jsonfile@^4.0.0:
   integrity sha1-h3Gq4HmbZAdrdmQPygWPnBDjPss=
   optionalDependencies:
     graceful-fs "^4.1.6"
+
+jspdf@^2.4.0:
+  version "2.4.0"
+  resolved "https://registry.npmmirror.com/jspdf/download/jspdf-2.4.0.tgz#53d6d2acc63203b0b3688949597dd11a633b1db5"
+  integrity sha1-U9bSrMYyA7CzaIlJWX3RGmM7HbU=
+  dependencies:
+    "@babel/runtime" "^7.14.0"
+    atob "^2.1.2"
+    btoa "^1.2.1"
+    fflate "^0.4.8"
+  optionalDependencies:
+    canvg "^3.0.6"
+    core-js "^3.6.0"
+    dompurify "^2.2.0"
+    html2canvas "^1.0.0-rc.5"
 
 "jsx-ast-utils@^2.4.1 || ^3.0.0":
   version "3.2.1"
@@ -5530,6 +5609,11 @@ pend@~1.2.0:
   resolved "https://registry.npm.taobao.org/pend/download/pend-1.2.0.tgz"
   integrity sha1-elfrVQpng/kRUzH89GY9XI4AelA=
 
+performance-now@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.npmmirror.com/performance-now/download/performance-now-2.1.0.tgz#6309f4e0e5fa913ec1c69307ae364b4b377c9e7b"
+  integrity sha1-Ywn04OX6kT7BxpMHrjZLSzd8nns=
+
 picocolors@^0.2.1:
   version "0.2.1"
   resolved "https://registry.npmmirror.com/picocolors/download/picocolors-0.2.1.tgz?cache=0&sync_timestamp=1634093378416&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fpicocolors%2Fdownload%2Fpicocolors-0.2.1.tgz#570670f793646851d1ba135996962abad587859f"
@@ -5924,6 +6008,13 @@ queue-microtask@^1.2.2:
   resolved "https://registry.nlark.com/queue-microtask/download/queue-microtask-1.2.3.tgz#4929228bbc724dfac43e0efb058caf7b6cfb6243"
   integrity sha1-SSkii7xyTfrEPg77BYyve2z7YkM=
 
+raf@^3.4.1:
+  version "3.4.1"
+  resolved "https://registry.nlark.com/raf/download/raf-3.4.1.tgz#0742e99a4a6552f445d73e3ee0328af0ff1ede39"
+  integrity sha1-B0LpmkplUvRF1z4+4DKK8P8e3jk=
+  dependencies:
+    performance-now "^2.1.0"
+
 randombytes@^2.0.0, randombytes@^2.0.1, randombytes@^2.0.5, randombytes@^2.1.0:
   version "2.1.0"
   resolved "https://registry.npm.taobao.org/randombytes/download/randombytes-2.1.0.tgz"
@@ -6096,7 +6187,7 @@ regenerate@^1.4.2:
   resolved "https://registry.npm.taobao.org/regenerate/download/regenerate-1.4.2.tgz?cache=0&sync_timestamp=1604218378158&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fregenerate%2Fdownload%2Fregenerate-1.4.2.tgz"
   integrity sha1-uTRtiCfo9aMve6KWN9OYtpAUhIo=
 
-regenerator-runtime@^0.13.4:
+regenerator-runtime@^0.13.4, regenerator-runtime@^0.13.7:
   version "0.13.9"
   resolved "https://registry.nlark.com/regenerator-runtime/download/regenerator-runtime-0.13.9.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fregenerator-runtime%2Fdownload%2Fregenerator-runtime-0.13.9.tgz"
   integrity sha1-iSV0Kpj/2QgUmI11Zq0wyjsmO1I=
@@ -6276,6 +6367,11 @@ reusify@^1.0.4:
   version "1.0.4"
   resolved "https://registry.npm.taobao.org/reusify/download/reusify-1.0.4.tgz#90da382b1e126efc02146e90845a88db12925d76"
   integrity sha1-kNo4Kx4SbvwCFG6QhFqI2xKSXXY=
+
+rgbcolor@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.nlark.com/rgbcolor/download/rgbcolor-1.0.1.tgz#d6505ecdb304a6595da26fa4b43307306775945d"
+  integrity sha1-1lBezbMEplldom+ktDMHMGd1lF0=
 
 rimraf@^2.5.4, rimraf@^2.6.3:
   version "2.7.1"
@@ -6726,6 +6822,11 @@ ssri@^6.0.1:
   dependencies:
     figgy-pudding "^3.5.1"
 
+stackblur-canvas@^2.0.0:
+  version "2.5.0"
+  resolved "https://registry.nlark.com/stackblur-canvas/download/stackblur-canvas-2.5.0.tgz#aa87bbed1560fdcd3138fff344fc6a1c413ebac4"
+  integrity sha1-qoe77RVg/c0xOP/zRPxqHEE+usQ=
+
 static-extend@^0.1.1:
   version "0.1.2"
   resolved "https://registry.npm.taobao.org/static-extend/download/static-extend-0.1.2.tgz"
@@ -6910,6 +7011,11 @@ supports-color@^7.1.0:
   dependencies:
     has-flag "^4.0.0"
 
+svg-pathdata@^6.0.3:
+  version "6.0.3"
+  resolved "https://registry.nlark.com/svg-pathdata/download/svg-pathdata-6.0.3.tgz#80b0e0283b652ccbafb69ad4f8f73e8d3fbf2cac"
+  integrity sha1-gLDgKDtlLMuvtprU+Pc+jT+/LKw=
+
 table@^6.0.4:
   version "6.7.2"
   resolved "https://registry.npmmirror.com/table/download/table-6.7.2.tgz#a8d39b9f5966693ca8b0feba270a78722cbaf3b0"
@@ -6950,6 +7056,13 @@ terser@^4.1.2, terser@^4.6.3:
     commander "^2.20.0"
     source-map "~0.6.1"
     source-map-support "~0.5.12"
+
+text-segmentation@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.nlark.com/text-segmentation/download/text-segmentation-1.0.2.tgz#1f828fa14aa101c114ded1bda35ba7dcc17c9858"
+  integrity sha1-H4KPoUqhAcEU3tG9o1un3MF8mFg=
+  dependencies:
+    utrie "^1.0.1"
 
 text-table@^0.2.0:
   version "0.2.0"
@@ -7256,6 +7369,13 @@ utils-merge@1.0.1:
   version "1.0.1"
   resolved "https://registry.npm.taobao.org/utils-merge/download/utils-merge-1.0.1.tgz"
   integrity sha1-n5VxD1CiZ5R7LMwSR0HBAoQn5xM=
+
+utrie@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.nlark.com/utrie/download/utrie-1.0.1.tgz#e155235ebcbddc89ae09261ab6e773ce61401b2f"
+  integrity sha1-4VUjXry93ImuCSYatudzzmFAGy8=
+  dependencies:
+    base64-arraybuffer "^1.0.1"
 
 uuid@^3.3.2, uuid@^3.4.0:
   version "3.4.0"
