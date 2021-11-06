@@ -1,6 +1,7 @@
 const ROUTER = {
   root: '/',
   resume: '/resume',
+  templateList: '/templateList',
 };
 
 export default ROUTER;
@@ -8,6 +9,7 @@ export default ROUTER;
 export const ROUTER_KEY = {
   root: 'root',
   resume: 'resume',
+  templateList: 'templateList',
 };
 
 export const ROUTER_ENTRY: TSRouter.Item[] = [
@@ -25,5 +27,10 @@ export const ROUTER_ENTRY: TSRouter.Item[] = [
     url: 'https://github.com/duanStar/ResumePlatform',
     key: 'code',
     text: '源码',
+  },
+  {
+    url: ROUTER.templateList,
+    key: ROUTER_KEY.templateList,
+    text: '模板',
   },
 ];

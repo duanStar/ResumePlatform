@@ -6,15 +6,23 @@ const fileAction = {
    * @param path 路径
    * @returns {Promise}
    */
-  read: (path: string, encoding?: BufferEncoding): Promise<string> => {
+  read: (path: string, encoding: BufferEncoding): Promise<string> => {
     return fsPromiseAPIs.readFile(path, { encoding: encoding || 'utf8' });
+  },
+  /**
+   * @description 读取目录内容
+   * @param path 路径
+   * @returns  {Promise}
+   */
+  readDir: (path: string): Promise<string[]> => {
+    return fsPromiseAPIs.readdir(path);
   },
   /**
    * @description 写入文件内容
    * @param path 路径
    * @returns {Promise}
    */
-  write: (path: string, content: string, encoding?: BufferEncoding): Promise<void> => {
+  write: (path: string, content: string, encoding: BufferEncoding): Promise<void> => {
     return fsPromiseAPIs.writeFile(path, content, { encoding: encoding || 'utf8' });
   },
   /**
@@ -23,7 +31,7 @@ const fileAction = {
    * @param {string} newPath 新地址
    * @returns {Promise}
    */
-  rename: (oldPath: string, newPath: string) => {
+  rename: (oldPath: string, newPath: string): Promise<void> => {
     return fsPromiseAPIs.rename(oldPath, newPath);
   },
   /**
@@ -31,7 +39,7 @@ const fileAction = {
    * @param path 路径
    * @returns {Promise}
    */
-  delete: (path: string) => {
+  delete: (path: string): Promise<void> => {
     return fsPromiseAPIs.unlink(path);
   },
   /**
@@ -39,7 +47,7 @@ const fileAction = {
    * @param path 路径
    * @returns {Promise}
    */
-  hasFile: (path: string) => {
+  hasFile: (path: string): Promise<void> => {
     return fsPromiseAPIs.access(path, fs.constants.F_OK);
   },
   /**
@@ -47,7 +55,7 @@ const fileAction = {
    * @param path 路径
    * @returns {Promise}
    */
-  canWrite: (path: string) => {
+  canWrite: (path: string): Promise<void> => {
     return fsPromiseAPIs.access(path, fs.constants.W_OK);
   },
   /**
@@ -55,7 +63,7 @@ const fileAction = {
    * @param path 路径
    * @returns {Promise}
    */
-  canRead: (path: string) => {
+  canRead: (path: string): Promise<void> => {
     return fsPromiseAPIs.access(path, fs.constants.R_OK);
   },
 };
