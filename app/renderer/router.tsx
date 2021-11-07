@@ -5,12 +5,15 @@ import Resume from '@src/container/resume';
 import TemplateList from '@src/container/templateList';
 import ROUTER from '@common/constants/router';
 import useReadDirAssetsTemplateHooks from './hooks/useReadDirAssetsTemplateHooks';
+import useThemeActionHooks from './hooks/useThemeActionHooks';
 
 function Router() {
   const readDirAssetsTemplateHooks = useReadDirAssetsTemplateHooks();
+  const initThemeConfig = useThemeActionHooks.useInitThemeConfig();
 
   useEffect(() => {
     readDirAssetsTemplateHooks();
+    initThemeConfig();
   }, []);
 
   return (

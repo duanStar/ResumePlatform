@@ -22,7 +22,7 @@ const fileAction = {
    * @param path 路径
    * @returns {Promise}
    */
-  write: (path: string, content: string, encoding: BufferEncoding): Promise<void> => {
+  write: (path: string, content: any, encoding: BufferEncoding): Promise<void> => {
     return fsPromiseAPIs.writeFile(path, content, { encoding: encoding || 'utf8' });
   },
   /**

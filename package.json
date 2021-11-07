@@ -5,6 +5,7 @@
   "author": "段宏斐",
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
+    "@types/lodash": "^4.14.176",
     "@types/react": "^17.0.33",
     "@types/react-css-modules": "^4.6.4",
     "@types/react-dom": "^17.0.10",
@@ -27,6 +28,7 @@
     "jspdf": "^2.4.0",
     "less": "3.12.2",
     "less-loader": "6.2.0",
+    "lodash": "^4.17.21",
     "postcss-less": "3.1.4",
     "postcss-loader": "3.0.0",
     "prettier": "2.3.0",

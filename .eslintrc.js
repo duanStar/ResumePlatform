@@ -38,5 +38,6 @@ module.exports = {
     '@typescript-eslint/no-invalid-this': 'off',
     'react/jsx-key': 0,
     'no-undef': 0,
+    'max-nested-callbacks': ['error', 10],
   },
 };
