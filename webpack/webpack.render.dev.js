@@ -8,6 +8,8 @@ const devConfig = {
   entry: {
     // 👇 对应渲染进程的 app.jsx 入口文件
     index: path.resolve(__dirname, '../app/renderer/app.tsx'),
+    // 👇 setting对应渲染进程的 app.jsx 入口文件
+    setting: path.resolve(__dirname, '../app/renderer/windowPages/setting/app.tsx'),
   },
   output: {
     filename: '[name].[hash].js',
@@ -52,6 +54,11 @@ const devConfig = {
       template: path.resolve(__dirname, '../app/renderer/index.html'),
       filename: path.resolve(__dirname, '../dist/index.html'),
       chunks: ['index'],
+    }),
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, '../app/renderer/windowPages/setting/index.html'),
+      filename: path.resolve(__dirname, '../dist/setting.html'),
+      chunks: ['setting'],
     }),
   ],
 };

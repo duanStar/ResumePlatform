@@ -1,20 +1,59 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './index.less';
 import { useHistory } from 'react-router';
 import ROUTER from '@common/constants/router';
 import MyButton from '@common/components/MyButton';
 import { toPrintPdf } from '@common/utils/htmlToPdf';
 import { useSelector } from 'react-redux';
+import { useReadGlobalConfigFile, useUpdateGlobalConfigFile } from '@src/hooks/useGlobalConfigActionHooks';
+import { getAppPath } from '@src/common/utils/appPath';
+import MyModal from '@src/common/components/MyModal';
+import { createUID } from '@src/common/utils';
+import fileAction from '@src/common/utils/file';
+import { intToDateString } from '@src/common/utils/time';
 
 function ResumeAction() {
+  const [showModal, setShowModal] = useState(false);
   const history = useHistory();
   const base: TSResume.Base = useSelector((state: any) => state.resumeModel.base);
   const work: TSResume.Work = useSelector((state: any) => state.resumeModel.work);
+  const resume = useSelector((state: any) => state.resumeModel);
+
+  const readGlobalConfigFile = useReadGlobalConfigFile();
+  const updateGlobalConfigFile = useUpdateGlobalConfigFile();
   // 返回首页
   const onBack = () => history.push(ROUTER.root);
   // 导出PDF
-  const onExport = () => {
+  const exportPdf = () => {
     toPrintPdf(`${base?.username}+${base?.school}+${work?.job}`);
+    readGlobalConfigFile().then((config: { [key: string]: any }) => {
+      if (config?.resumeSavePath) {
+        saveResumeJson(config?.resumeSavePath);
+      } else {
+        getAppPath().then((appPath: string) => {
+          const savePath = `${appPath}resumeCache`;
+          saveResumeJson(savePath);
+          updateGlobalConfigFile('resumeSavePath', savePath);
+        });
+      }
+    });
+  };
+
+  const saveResumeJson = (path: string) => {
+    const date = intToDateString(new Date().valueOf(), '_');
+    const prefix = `${date}_${base?.username}_${base?.school}_${work?.job}_${createUID()}.json`;
+    if (fileAction.exits(path)) {
+      fileAction?.write(`${path}/${prefix}`, JSON.stringify(resume), 'utf-8');
+    } else {
+      fileAction
+        ?.mkdirDir(path)
+        .then(() => {
+          fileAction.write(`${path}/${prefix}`, JSON.stringify(resume), 'utf-8');
+        })
+        .catch(() => {
+          console.log('创建文件夹失败');
+        });
+    }
   };
 
   return (
@@ -22,9 +61,25 @@ function ResumeAction() {
       <div styleName="back" onClick={onBack}>
         返回
       </div>
-      <MyButton size="middle" className="export-btn" onClick={onExport}>
+      <MyButton size="middle" className="export-btn" onClick={() => setShowModal(true)}>
         导出PDF
       </MyButton>
+      {showModal && (
+        <MyModal.Confirm
+          title="确定要打印简历吗？"
+          description="请确保信息的正确，目前仅支持单页打印哦～"
+          config={{
+            cancelBtn: {
+              isShow: true,
+              callback: () => setShowModal(false),
+            },
+            submitBtn: {
+              isShow: true,
+              callback: exportPdf,
+            },
+          }}
+        />
+      )}
     </div>
   );
 }
