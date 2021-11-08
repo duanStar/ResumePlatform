@@ -3,7 +3,7 @@ import { AdapterExperienceType } from './UseForm/WrapperExperience/adapter';
 
 const useUpdateResumeHook = () => {
   const updatePersonalHook = useUpdatePersonalHook();
-  const updateContactHook = useUpdatePersonalHook();
+  const updateContactHook = useUpdateContactHook();
   const updateWorkHook = useUpdateWorkHook();
   const updateEvaluationHook = useUpdateEvaluationHook();
   const updateHobbyHook = useUpdateHobbyHook();

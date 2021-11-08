@@ -15,10 +15,18 @@ import Evaluation from './UseForm/Evaluation';
 import WorkExperience from './UseForm/WorkExperience';
 import ProjectExperience from './UseForm/ProjectExperience';
 import SchoolExperience from './UseForm/SchoolExperience';
+import { useParams } from 'react-router';
 
 function ResumeContent() {
   const HEADER_ACTION_HEIGHT = 92;
-  const height = document.body.clientHeight;
+  const height = document.documentElement.clientHeight;
+
+  const routeParams =
+    useParams<{
+      fromPath: string;
+      templateId: string;
+      templateIndex: string;
+    }>();
 
   const [formName, setFormName] = useState('');
   const [showFormModal, setShowFormModal] = useState(false);
@@ -43,7 +51,7 @@ function ResumeContent() {
 
   return (
     <MyScrollBox maxHeight={height - HEADER_ACTION_HEIGHT}>
-      <UseTemplateList.TemplateOne />
+      {routeParams?.templateId && Number(routeParams?.templateIndex) === 0 && <UseTemplateList.TemplateOne />}
       {showFormModal && (
         <div>
           {formName === RESUME_TOOLBAR_MAPS.personal && <Personal onClose={onClose} />}

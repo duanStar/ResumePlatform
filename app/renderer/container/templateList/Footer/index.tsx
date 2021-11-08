@@ -1,10 +1,23 @@
 import React from 'react';
 import './index.less';
 import MyButton from '@common/components/MyButton';
+import { useHistory } from 'react-router';
+import { useSelector } from 'react-redux';
+import { compilePath } from '@src/common/utils/router';
+import ROUTER, { ROUTER_KEY } from '@src/common/constants/router';
 
 function Footer() {
+  const history = useHistory();
+  const selectTemplate = useSelector((state: any) => state.templateModel.selectTemplate);
+
   const onMadeResume = () => {
-    console.log('跳转前往制作页面');
+    history.push(
+      compilePath(ROUTER.resume, {
+        fromPath: ROUTER_KEY.templateList,
+        templateId: selectTemplate?.templateId,
+        templateIndex: selectTemplate?.templateIndex,
+      })
+    );
   };
   return (
     <div styleName="footer">

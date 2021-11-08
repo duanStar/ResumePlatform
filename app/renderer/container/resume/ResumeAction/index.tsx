@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './index.less';
-import { useHistory } from 'react-router';
-import ROUTER from '@common/constants/router';
+import { useHistory, useParams } from 'react-router';
+import ROUTER, { ROUTER_KEY } from '@common/constants/router';
 import MyButton from '@common/components/MyButton';
 import { toPrintPdf } from '@common/utils/htmlToPdf';
 import { useSelector } from 'react-redux';
@@ -11,6 +11,7 @@ import MyModal from '@src/common/components/MyModal';
 import { createUID } from '@src/common/utils';
 import fileAction from '@src/common/utils/file';
 import { intToDateString } from '@src/common/utils/time';
+import { compilePath } from '@src/common/utils/router';
 
 function ResumeAction() {
   const [showModal, setShowModal] = useState(false);
@@ -18,11 +19,25 @@ function ResumeAction() {
   const base: TSResume.Base = useSelector((state: any) => state.resumeModel.base);
   const work: TSResume.Work = useSelector((state: any) => state.resumeModel.work);
   const resume = useSelector((state: any) => state.resumeModel);
+  const routerParams =
+    useParams<{
+      fromPath: string;
+      templateId: string;
+      templateIndex: string;
+    }>();
 
   const readGlobalConfigFile = useReadGlobalConfigFile();
   const updateGlobalConfigFile = useUpdateGlobalConfigFile();
   // 返回首页
-  const onBack = () => history.push(ROUTER.root);
+  const onBack = () => {
+    if (routerParams?.fromPath === ROUTER_KEY.root) {
+      history.push(compilePath(ROUTER.root));
+    } else if (routerParams?.fromPath === ROUTER_KEY.templateList) {
+      history.push(compilePath(ROUTER.templateList));
+    } else {
+      console.log('here');
+    }
+  };
   // 导出PDF
   const exportPdf = () => {
     toPrintPdf(`${base?.username}+${base?.school}+${work?.job}`);

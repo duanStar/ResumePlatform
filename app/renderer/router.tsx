@@ -6,6 +6,7 @@ import TemplateList from '@src/container/templateList';
 import ROUTER from '@common/constants/router';
 import useReadDirAssetsTemplateHooks from './hooks/useReadDirAssetsTemplateHooks';
 import useThemeActionHooks from './hooks/useThemeActionHooks';
+import CacheRoute, { CacheSwitch } from 'react-router-cache-route';
 
 function Router() {
   const readDirAssetsTemplateHooks = useReadDirAssetsTemplateHooks();
@@ -18,12 +19,12 @@ function Router() {
 
   return (
     <HashRouter>
-      <Switch>
-        <Route path={ROUTER.root} exact component={Root} />
-        <Route path={ROUTER.resume} exact component={Resume} />
-        <Route path={ROUTER.templateList} exact component={TemplateList} />
-      </Switch>
-      <Redirect to={ROUTER.root} />
+      <CacheSwitch>
+        <CacheRoute path={ROUTER.root} exact component={Root} />
+        <CacheRoute path={ROUTER.resume} exact component={Resume} />
+        <CacheRoute path={ROUTER.templateList} exact component={TemplateList} />
+        <Redirect to={ROUTER.root} />
+      </CacheSwitch>
     </HashRouter>
   );
 }

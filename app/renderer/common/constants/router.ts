@@ -1,6 +1,6 @@
 const ROUTER = {
   root: '/',
-  resume: '/resume',
+  resume: '/resume/:fromPath/:templateId/:templateIndex',
   templateList: '/templateList',
 };
 

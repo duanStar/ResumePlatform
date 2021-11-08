@@ -25,7 +25,6 @@ function useSelectTheme() {
   const dispatch = useDispatch();
   return (themeConfigValues: any) => {
     const prevTheme: string = themeConfigValues?.currentTheme?.id || '';
-    console.log(prevTheme);
     const initTheme = { id: 'dark', fontColor: '#ffffff', backgroundColor: '#27292c' };
     let nextTheme: TSTheme.Item;
     if (themeConfigValues?.themeList.length > 0) {
