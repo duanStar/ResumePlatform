@@ -66,7 +66,9 @@
     "@types/redux-logger": "^3.0.9",
     "babel-loader": "^8.2.3",
     "clean-webpack-plugin": "^4.0.0",
+    "copy-webpack-plugin": "6.4",
     "electron": "11.1.1",
+    "electron-builder": "^22.13.1",
     "html-webpack-plugin": "^4.3.0",
     "rc-redux-model": "^1.1.10",
     "redux-logger": "^3.0.6",
@@ -76,8 +78,8 @@
     "webpack-merge": "^5.8.0"
   },
   "build": {
-    "appId": "visResumeMook.ElectronReact",
-    "productName": "VisResumeMook",
+    "appId": "ResumePlatform.ElectronReact",
+    "productName": "ResumePlatform",
     "copyright": "Copyright © 2021 ${author}",
     "files": [
       "dist/**/*",
@@ -85,14 +87,14 @@
       "node_modules/"
     ],
     "directories": {
-      "buildResources": "assets",
-      "output": "distAssets"
+      "output": "package"
     },
     "mac": {
       "target": [
         "dmg",
         "zip"
-      ]
+      ],
+      "category": "public.app-category.productivity"
     },
     "dmg": {
       "contents": [

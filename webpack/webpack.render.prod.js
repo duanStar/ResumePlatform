@@ -2,16 +2,28 @@ const path = require('path');
 const webpackMerge = require('webpack-merge');
 const baseConfig = require('./webpack.base.js');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const devConfig = {
   mode: 'production',
   entry: {
     // 👇 对应渲染进程的 app.jsx 入口文件
     index: path.resolve(__dirname, '../app/renderer/app.tsx'),
+    setting: path.resolve(__dirname, '../app/renderer/windowPages/setting/app.tsx'),
   },
   output: {
     filename: '[name].[hash].js',
     path: path.resolve(__dirname, '../dist'),
+  },
+  resolve: {
+    // 这里就需要 jsx 和 tsx 了
+    extensions: ['.js', '.jsx', '.ts', '.tsx'],
+    // 别名配置，在 Electron 中并未用到别名路径，所以拆到 React 这边的配置中
+    alias: {
+      '@assets': path.join(__dirname, '../', 'assets/'),
+      '@src': path.join(__dirname, '../', 'app/renderer'),
+      '@common': path.join(__dirname, '../', 'app/renderer/common'),
+    },
   },
   target: 'electron-renderer',
   module: {
@@ -39,19 +51,29 @@ const devConfig = {
     ],
   },
   devtool: 'inline-source-map',
-  devServer: {
-    contentBase: path.join(__dirname, '../dist'),
-    compress: true,
-    host: '127.0.0.1', // webpack-dev-server启动时要指定ip，不能直接通过localhost启动，不指定会报错
-    port: 7001, // 启动端口为 7001 的服务
-    hot: true,
-  },
   plugins: [
     new HtmlWebpackPlugin({
       // 👇 以此文件为模版，自动生成 HTML
       template: path.resolve(__dirname, '../app/renderer/index.html'),
       filename: path.resolve(__dirname, '../dist/index.html'),
       chunks: ['index'],
+    }),
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, '../app/renderer/windowPages/setting/index.html'),
+      filename: path.resolve(__dirname, '../dist/setting.html'),
+      chunks: ['setting'],
+    }),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: path.resolve(__dirname, '../assets'),
+          to: path.resolve(__dirname, '../dist/assets'),
+        },
+        {
+          from: path.resolve(__dirname, '../appConfig'),
+          to: path.resolve(__dirname, '../dist/appConfig'),
+        },
+      ],
     }),
   ],
 };

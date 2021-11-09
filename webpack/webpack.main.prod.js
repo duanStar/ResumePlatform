@@ -11,6 +11,20 @@ const prodConfig = {
     path: path.resolve(__dirname, '../dist'),
   },
   devtool: 'inline-source-map',
+  resolve: {
+    extensions: ['.js', '.ts'],
+  },
+  module: {
+    rules: [
+      {
+        test: /\.(js|ts)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+        },
+      },
+    ],
+  },
   // 👇 这里改成生产环境
   mode: 'production',
   plugins: [
