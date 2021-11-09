@@ -52,8 +52,8 @@ function MyButton({ size = 'small', style, width, children, disabled, className,
         'es-button-disabled': disabled,
         'es-button-border': border,
       })}
-      onClick={() => {
-        onClick && onClick();
+      onClick={(e: React.MouseEvent) => {
+        onClick && onClick(e);
       }}
     >
       {children}

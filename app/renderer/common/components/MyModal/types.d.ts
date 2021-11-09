@@ -1,4 +1,4 @@
-type Position = 'top' | 'bottom' | 'center';
+export type Position = 'top' | 'bottom' | 'center';
 
 interface BtnConfig {
   /**

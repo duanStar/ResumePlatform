@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './index.less';
 import { useHistory, useParams } from 'react-router';
 import ROUTER, { ROUTER_KEY } from '@common/constants/router';
@@ -12,9 +12,10 @@ import { createUID } from '@src/common/utils';
 import fileAction from '@src/common/utils/file';
 import { intToDateString } from '@src/common/utils/time';
 import { compilePath } from '@src/common/utils/router';
+import useClickAway from '@src/hooks/useClickAway';
 
 function ResumeAction() {
-  const [showModal, setShowModal] = useState(false);
+  const { ref, componentVisible, setComponentVisible } = useClickAway(false);
   const history = useHistory();
   const base: TSResume.Base = useSelector((state: any) => state.resumeModel.base);
   const work: TSResume.Work = useSelector((state: any) => state.resumeModel.work);
@@ -52,6 +53,7 @@ function ResumeAction() {
         });
       }
     });
+    setComponentVisible(false);
   };
 
   const saveResumeJson = (path: string) => {
@@ -76,17 +78,26 @@ function ResumeAction() {
       <div styleName="back" onClick={onBack}>
         返回
       </div>
-      <MyButton size="middle" className="export-btn" onClick={() => setShowModal(true)}>
+      <MyButton
+        size="middle"
+        className="export-btn"
+        onClick={(e: React.MouseEvent) => {
+          e.nativeEvent.stopPropagation();
+          e.stopPropagation();
+          setComponentVisible(true);
+        }}
+      >
         导出PDF
       </MyButton>
-      {showModal && (
+      {componentVisible && (
         <MyModal.Confirm
+          eleRef={ref}
           title="确定要打印简历吗？"
           description="请确保信息的正确，目前仅支持单页打印哦～"
           config={{
             cancelBtn: {
               isShow: true,
-              callback: () => setShowModal(false),
+              callback: () => setComponentVisible(false),
             },
             submitBtn: {
               isShow: true,

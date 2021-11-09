@@ -5,6 +5,7 @@ import React from 'react';
 import './index.less';
 import MyButton from '@common/components/MyButton';
 import { IDialogModal } from '../types';
+import MyMaskHoc from '@src/common/hoc/MyMaskHoc';
 
 function MyDialog({
   title,
