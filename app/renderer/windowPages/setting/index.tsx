@@ -4,7 +4,7 @@ import MyButton from '@common/components/MyButton';
 import { ipcRenderer } from 'electron';
 import { useReadGlobalConfigFile, useUpdateGlobalConfigFile } from '@src/hooks/useGlobalConfigActionHooks';
 import { read } from 'original-fs';
-import { getAppPath } from '@src/common/utils/appPath';
+import { getUserStoreDataPath } from '@src/common/utils/appPath';
 
 function Setting() {
   const [resumeSavePath, setResumeSavePath] = useState('');
@@ -23,7 +23,7 @@ function Setting() {
       if (config?.resumeSavePath) {
         setResumeSavePath(config?.resumeSavePath);
       } else {
-        getAppPath().then((appPath: string) => {
+        getUserStoreDataPath().then((appPath: string) => {
           const savePath = `${appPath}resumeCache`;
           setResumeSavePath(savePath);
           updateGlobalConfigFile('resumeSavePath', savePath);

@@ -69,10 +69,6 @@ const devConfig = {
           from: path.resolve(__dirname, '../assets'),
           to: path.resolve(__dirname, '../dist/assets'),
         },
-        {
-          from: path.resolve(__dirname, '../appConfig'),
-          to: path.resolve(__dirname, '../dist/appConfig'),
-        },
       ],
     }),
   ],

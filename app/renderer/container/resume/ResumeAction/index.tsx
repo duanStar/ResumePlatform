@@ -6,7 +6,7 @@ import MyButton from '@common/components/MyButton';
 import { toPrintPdf } from '@common/utils/htmlToPdf';
 import { useSelector } from 'react-redux';
 import { useReadGlobalConfigFile, useUpdateGlobalConfigFile } from '@src/hooks/useGlobalConfigActionHooks';
-import { getAppPath } from '@src/common/utils/appPath';
+import { getUserStoreDataPath } from '@src/common/utils/appPath';
 import MyModal from '@src/common/components/MyModal';
 import { createUID } from '@src/common/utils';
 import fileAction from '@src/common/utils/file';
@@ -46,7 +46,7 @@ function ResumeAction() {
       if (config?.resumeSavePath) {
         saveResumeJson(config?.resumeSavePath);
       } else {
-        getAppPath().then((appPath: string) => {
+        getUserStoreDataPath().then((appPath: string) => {
           const savePath = `${appPath}resumeCache`;
           saveResumeJson(savePath);
           updateGlobalConfigFile('resumeSavePath', savePath);

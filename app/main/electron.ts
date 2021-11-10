@@ -5,12 +5,13 @@
 import path from 'path';
 import { app, BrowserWindow, ipcMain, dialog, Menu, globalShortcut } from 'electron';
 import customMenu from './customMenu';
+import './userData';
 
 export interface MyBrowserWindow extends BrowserWindow {
   uid?: string;
 }
 
-function isDev() {
+export function isDev() {
   return process.env.NODE_ENV === 'development';
 }
 const ROOT_PATH = path.join(app.getAppPath(), '../');
@@ -21,18 +22,19 @@ function createWindow() {
     height: 800,
     webPreferences: {
       nodeIntegration: true,
-      devTools: true,
+      devTools: isDev(),
     },
     show: false,
+    resizable: isDev(),
   });
 
   const settingWindow: MyBrowserWindow = new BrowserWindow({
     width: 720,
     height: 240,
-    resizable: false,
+    resizable: isDev(),
     webPreferences: {
       nodeIntegration: true,
-      devTools: true,
+      devTools: isDev(),
     },
     show: false,
     frame: false,
@@ -80,7 +82,7 @@ app.on('will-quit', () => {
 });
 
 ipcMain.on('get-root-path', (event, arg) => {
-  event.reply('reply-root-path', __dirname);
+  event.reply('reply-root-path', isDev() ? ROOT_PATH : __dirname);
 });
 
 ipcMain.on('open-save-resume-path', (event, arg) => {
