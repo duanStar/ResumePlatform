@@ -1,6 +1,9 @@
 const path = require('path');
+const HappyPack = require('happypack');
+const SpeedMeasurePlugin = require('speed-measure-webpack-plugin');
+const smp = new SpeedMeasurePlugin();
 
-module.exports = {
+module.exports = smp.wrap({
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx'],
     alias: {
@@ -15,22 +18,29 @@ module.exports = {
         test: /\.(js|jsx|ts|tsx)$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader',
+          loader: 'HappyPack/loader?id=resumePlatform',
         },
       },
       {
         test: /\.(jpg|png|jpeg|gif)$/,
         use: [
           {
-            loader: 'file-loader',
+            loader: 'url-loader',
             options: {
               name: '[name]_[hash].[ext]',
               outputPath: 'images/',
               esModule: false,
+              limit: 2048,
             },
           },
         ],
       },
     ],
   },
-};
+  plugins: [
+    new HappyPack({
+      loaders: ['babel-loader?cacheDirectory'],
+      id: 'resumePlatform',
+    }),
+  ],
+});

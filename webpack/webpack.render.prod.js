@@ -3,6 +3,10 @@ const webpackMerge = require('webpack-merge');
 const baseConfig = require('./webpack.base.js');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const AddAssetHtmlWebpackPlugin = require('add-asset-html-webpack-plugin');
+const webpack = require('webpack');
 
 const devConfig = {
   mode: 'production',
@@ -30,7 +34,7 @@ const devConfig = {
     rules: [
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader', 'postcss-loader'],
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
       },
       {
         test: /\.less$/,
@@ -70,6 +74,18 @@ const devConfig = {
           to: path.resolve(__dirname, '../dist/assets'),
         },
       ],
+    }),
+    new MiniCssExtractPlugin({
+      filename: '[name].[contenthash].css',
+      chunkFilename: '[id].[contenthash].css',
+    }),
+    new OptimizeCssAssetsWebpackPlugin({}),
+    new AddAssetHtmlWebpackPlugin({
+      // 👇 引入刚才的 reacts.dll.js 文件
+      filepath: path.resolve(__dirname, '../dist/dll/reacts.dll.js'),
+    }),
+    new webpack.DllReferencePlugin({
+      manifest: require(path.resolve(__dirname, '../dist/dll/reacts.manifest.json')),
     }),
   ],
 };

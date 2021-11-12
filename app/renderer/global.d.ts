@@ -9,3 +9,5 @@ declare module '*.png' {
 declare interface Window {
   pdk: string;
 }
+
+declare module 'rc-redux-model';
